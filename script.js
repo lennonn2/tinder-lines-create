@@ -2,8 +2,17 @@ function submit() {
   // endpoints:
   // POST - https://qvqnyun7pl.execute-api.us-east-1.amazonaws.com/prod/notes
   // GET - https://qvqnyun7pl.execute-api.us-east-1.amazonaws.com/prod/lines
+  document.getElementById('response').innerText = '';
   const message = document.getElementById('messages').value;
-  const messages = message.split(',');
+  const messages = message
+    .split(',')
+    .map((text, index) => {
+      return {
+        text: text.trim().replace('(r)', ''),
+        index,
+        isReply: text.includes('(r)'),
+      };
+    });
 
   const categories = [];
   if (document.getElementById('funny').checked) categories.push('funny');
@@ -18,16 +27,22 @@ function submit() {
     categories: categories
   };
 
-  const url = 'https://qvqnyun7pl.execute-api.us-east-1.amazonaws.com/prod/notes';
-  fetch(url, {
-    body: JSON.stringify(data), // must match 'Content-Type' header
-    cache: 'no-cache', // *default, no-cache, reload, force-cache, only-if-cached
-    credentials: 'same-origin', // include, same-origin, *omit
-    headers: {
-      'content-type': 'application/json'
-    },
-    method: 'POST', // *GET, POST, PUT, DELETE, etc.
-    mode: 'cors', // no-cors, cors, *same-origin
-  })
-  .then(response => document.getElementById('response').innerText = response);
+  if (categories.length === 0) {
+    document.getElementById('response').innerText = 'You forgot the categories, ya prick...';
+  } else {
+    const url = 'https://qvqnyun7pl.execute-api.us-east-1.amazonaws.com/prod/notes';
+    fetch(url, {
+      body: JSON.stringify(data), // must match 'Content-Type' header
+      cache: 'no-cache', // *default, no-cache, reload, force-cache, only-if-cached
+      credentials: 'same-origin', // include, same-origin, *omit
+      headers: {
+        'content-type': 'application/json'
+      },
+      method: 'POST', // *GET, POST, PUT, DELETE, etc.
+      mode: 'cors', // no-cors, cors, *same-origin
+    })
+    .then(response => {
+      document.getElementById('response').innerText = response
+    })
+  }
 }
