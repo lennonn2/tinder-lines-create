@@ -3,7 +3,13 @@
     <script src="./script.js"></script>
   </head>
   <body>
-    <textarea id="messages"></textarea><br/>
+    <div id="messageContainer">
+      <div class="messageObject">
+        <input type="text" class="message"/>
+        <input value="reply" type="checkbox"/>Reply<br/>
+      </div>
+    </div>
+    <button onclick="add()">+</button><br/>
     <input id="funny" value="funny" type="checkbox"/>Funny<br/>
     <input id="cheesy" value="cheesy" type="checkbox"/>Cheesy<br/>
     <input id="pickup" value="pickup" type="checkbox"/>Pickup<br/>
