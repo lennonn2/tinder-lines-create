@@ -27,8 +27,8 @@ function submit() {
     categories: categories
   };
 
-  const url = 'https://qvqnyun7pl.execute-api.us-east-1.amazonaws.com/prod/notes';
-  fetch(url, {
+  // const url = 'https://qvqnyun7pl.execute-api.us-east-1.amazonaws.com/prod/notes';
+  fetch('url', {
     body: JSON.stringify(data), // must match 'Content-Type' header
     cache: 'no-cache', // *default, no-cache, reload, force-cache, only-if-cached
     credentials: 'same-origin', // include, same-origin, *omit

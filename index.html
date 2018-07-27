@@ -1,21 +1,83 @@
 <html>
   <head>
-    <script src="./script.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+    <link rel="stylesheet" href="./style.css">
+    <script src="./script.js" async></script>
   </head>
   <body>
-    <div id="messageContainer">
+    <div id="messageContainer" class="messageContainer">
       <div class="messageObject">
         <input type="text" class="message"/>
-        <input value="reply" type="checkbox"/>Reply<br/>
+        <input value="reply" type="checkbox" class="reply"/>Reply<br/>
       </div>
     </div>
     <button onclick="add()">+</button><br/>
-    <input id="funny" value="funny" type="checkbox"/>Funny<br/>
-    <input id="cheesy" value="cheesy" type="checkbox"/>Cheesy<br/>
-    <input id="pickup" value="pickup" type="checkbox"/>Pickup<br/>
-    <input id="risky" value="risky" type="checkbox"/>Risky<br/>
-    <input id="stupid" value="stupid" type="checkbox"/>Stupid<br/>
-    <input id="question" value="question" type="checkbox"/>Question<br/>
+    <div class="checkboxGrid">
+      <label class='cbxContainer'>
+        <input
+          type="checkbox"
+          name="funny"
+          value="funny"
+        />
+        <span
+          class='checkmark'
+        ></span>Funny
+      </label>
+
+      <label class='cbxContainer'>
+        <input
+          type="checkbox"
+          name="cheesy"
+          value="cheesy"
+        />
+        <span
+          class='checkmark'
+        ></span>Cheesy
+      </label>
+
+      <label class='cbxContainer'>
+        <input
+          type="checkbox"
+          name="pickup"
+          value="pickup"
+        />
+        <span
+          class='checkmark'
+        ></span>Pickup
+      </label>
+
+      <label class='cbxContainer'>
+        <input
+          type="checkbox"
+          name="risky"
+          value="risky"
+        />
+        <span
+          class='checkmark'
+        ></span>Risky
+      </label>
+      <label class='cbxContainer'>
+        <input
+          type="checkbox"
+          name="stupid"
+          value="stupid"
+        />
+        <span
+          class='checkmark'
+        ></span>Stupid
+      </label>
+
+      <label class='cbxContainer'>
+        <input
+          type="checkbox"
+          name="question"
+          value="question"
+        />
+        <span
+          class='checkmark'
+        ></span>Question
+      </label>
+    </div>
 
     <button onclick="submit()">Submit</button>
 
