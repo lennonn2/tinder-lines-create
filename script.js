@@ -47,11 +47,16 @@ function add() {
   div.classList.add('messageObject');
   const text = document.createElement('input');
   text.classList.add('message');
+  text.setAttribute('type', 'text');
   const checkbox = document.createElement('input');
   checkbox.setAttribute('type', 'checkbox');
+  checkbox.setAttribute('value', 'reply');
+  checkbox.setAttribute('class', 'reply');
   div.appendChild(text);
   div.appendChild(checkbox);
-  div.appendChild(document.createTextNode('Reply'));
-  div.appendChild(document.createElement('br'));
+  const span = document.createElement('span')
+  span.innerText = 'Reply';
+  div.appendChild(span);
+  // div.appendChild(document.createTextNode('Reply'));
   container.appendChild(div);
 }

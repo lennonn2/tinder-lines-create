@@ -22,6 +22,8 @@ body > * {
   
   grid-template-rows: 25px 25px 25px;
   grid-column-gap: 65px;
+
+  margin-top: 50px;
 }
 
 .checkboxGrid > * {
@@ -129,12 +131,13 @@ body > * {
   flex-direction: column;
 }
 .messageObject {
-  width: 700px;
+  max-width: 700px;
   font-size: 14px;
+  margin-bottom: 5px;
 }
 
 .messageObject .message {
-  width: 350px;
+  min-width: 300px;
   height: 30px;
   border: solid 1px gray;
   border-radius: 5px;
@@ -143,3 +146,37 @@ body > * {
   margin-right: 5px;
 }
 
+.messageObject span {
+  width: 15px;
+}
+
+.addButton {
+  width: 200px;
+  justify-self: center;
+  height: 35px;
+  margin-top: 15px;
+}
+
+.submitButton, .addButton {
+  width: 200px;
+  justify-self: center;
+  height: 35px;
+  display: flex;
+  background-color: #FF655B;
+  color: white;
+  align-self: center;
+  font-size: 20px;
+  align-items: center;
+  justify-content: center;
+  border-radius: 5px;
+  border: none;
+}
+
+.submitButton:hover {
+  filter: brightness(90%);
+  cursor: pointer;
+}
+
+.submitButton:active {
+  filter: brightness(110%);
+}
