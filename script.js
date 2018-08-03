@@ -44,6 +44,7 @@ function submit() {
 function add() {
   const container = document.getElementById('messageContainer');
   const div = document.createElement('div');
+  container.appendChild(div);
   div.classList.add('messageObject');
   const text = document.createElement('input');
   text.classList.add('message');
@@ -58,5 +59,6 @@ function add() {
   span.innerText = 'Reply';
   div.appendChild(span);
   // div.appendChild(document.createTextNode('Reply'));
-  container.appendChild(div);
 }
+
+document.onload = add();
