@@ -130,10 +130,13 @@ body > * {
 .messageContainer {
   flex-direction: column;
 }
+
 .messageObject {
+  display: flex;
   max-width: 700px;
   font-size: 14px;
   margin-bottom: 5px;
+  align-items: center;
 }
 
 .messageObject .message {
@@ -154,7 +157,6 @@ body > * {
   width: 200px;
   justify-self: center;
   height: 35px;
-  margin-top: 15px;
 }
 
 .submitButton, .addButton {

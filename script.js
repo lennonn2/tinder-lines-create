@@ -14,6 +14,11 @@ function submit() {
       };
     });
 
+  if (messages.some(msg => msg.text === '')) {
+    alert('Message with no text!');
+    return;
+  } 
+
   const categories = [];
   if (document.getElementById('funny').checked) categories.push('funny');
   if (document.getElementById('cheesy').checked) categories.push('cheesy');
@@ -22,13 +27,18 @@ function submit() {
   if (document.getElementById('stupid').checked) categories.push('stupid');
   if (document.getElementById('question').checked) categories.push('question');
 
+  if (categories.length === 0) {
+    alert('No categories checked!');
+    return;
+  }
+
   const data = {
     messages: messages,
     categories: categories
   };
 
-  // const url = 'https://qvqnyun7pl.execute-api.us-east-1.amazonaws.com/prod/notes';
-  fetch('url', {
+  const url = 'https://qvqnyun7pl.execute-api.us-east-1.amazonaws.com/prod/notes';
+  fetch(url, {
     body: JSON.stringify(data), // must match 'Content-Type' header
     cache: 'no-cache', // *default, no-cache, reload, force-cache, only-if-cached
     credentials: 'same-origin', // include, same-origin, *omit
@@ -38,7 +48,14 @@ function submit() {
     method: 'POST', // *GET, POST, PUT, DELETE, etc.
     mode: 'cors', // no-cors, cors, *same-origin
   })
-  .then(response => document.getElementById('response').innerText = response);
+  .then(
+    response => {
+      if (response.status === 200) {
+        document.getElementById('response').innerText = 'Line submitted successfully!';
+      } else {
+        document.getElementById('response').innerText = 'Something went wrong...';
+      }
+    })
 }
 
 function add() {
@@ -58,7 +75,6 @@ function add() {
   const span = document.createElement('span')
   span.innerText = 'Reply';
   div.appendChild(span);
-  // div.appendChild(document.createTextNode('Reply'));
 }
 
 document.onload = add();
