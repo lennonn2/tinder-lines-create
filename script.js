@@ -17,8 +17,8 @@ function submit() {
   if (messages.some(msg => msg.text === '')) {
     alert('Message with no text!');
     return;
-  } 
-
+  }
+ 
   const categories = [];
   if (document.getElementById('funny').checked) categories.push('funny');
   if (document.getElementById('cheesy').checked) categories.push('cheesy');
