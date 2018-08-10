@@ -1,18 +1,50 @@
 <html>
-  <head>
-    <script src="./script.js"></script>
-  </head>
-  <body>
-    <textarea id="messages"></textarea><br/>
-    <input id="funny" value="funny" type="checkbox"/>Funny<br/>
-    <input id="cheesy" value="cheesy" type="checkbox"/>Cheesy<br/>
-    <input id="pickup" value="pickup" type="checkbox"/>Pickup<br/>
-    <input id="risky" value="risky" type="checkbox"/>Risky<br/>
-    <input id="stupid" value="stupid" type="checkbox"/>Stupid<br/>
-    <input id="question" value="question" type="checkbox"/>Question<br/>
 
-    <button onclick="submit()">Submit</button>
+<head>
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+  <link rel="stylesheet" href="./style.css">
+  <script src="./script.js" async></script>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
 
-    <p id="response"></p>
-  </body>
+<body>
+  <div id="messageContainer" class="messageContainer">
+  </div>
+  <button class="addButton" onclick="add()">Add Line +</button>
+  <div class="checkboxGrid">
+    <label class='cbxContainer'>
+      <input type="checkbox" id="funny" value="funny" />
+      <span class='checkmark'></span>Funny
+    </label>
+
+    <label class='cbxContainer'>
+      <input type="checkbox" id="cheesy" value="cheesy" />
+      <span class='checkmark'></span>Cheesy
+    </label>
+
+    <label class='cbxContainer'>
+      <input type="checkbox" id="pickup" value="pickup" />
+      <span class='checkmark'></span>Pickup
+    </label>
+
+    <label class='cbxContainer'>
+      <input type="checkbox" id="risky" value="risky" />
+      <span class='checkmark'></span>Risky
+    </label>
+    <label class='cbxContainer'>
+      <input type="checkbox" id="stupid" value="stupid" />
+      <span class='checkmark'></span>Stupid
+    </label>
+
+    <label class='cbxContainer'>
+      <input type="checkbox" id="question" value="question" />
+      <span class='checkmark'></span>Question
+    </label>
+  </div>
+
+  <button class="submitButton" onclick="submit()">Submit</button>
+
+  <p id="response"></p>
+</body>
+
 </html>
